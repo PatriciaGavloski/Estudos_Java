@@ -1,5 +1,55 @@
 Desafio de código - Entendendo Sintaxe Básica e Estrutura em Java
 
-fdfdffsdfl lskadn 
+Desafio
+Você foi contratado como consultor júnior em uma empresa de TI que está migrando seus sistemas para a nuvem usando Java e AWS. Seu primeiro desafio é ajudar a equipe a identificar rapidamente qual serviço AWS deve ser utilizado para cada tipo de demanda recebida pelo suporte. Para isso, você deve criar um programa que, ao receber uma solicitação em texto simples, indique qual serviço AWS é o mais adequado: "EC2" para demandas de servidores virtuais, "S3" para armazenamento de arquivos, "RDS" para bancos de dados relacionais e "Lambda" para execuções de código sob demanda. Caso a solicitação não se encaixe em nenhuma dessas categorias, o programa deve responder "Servico desconhecido". Sua solução será usada como base para automatizar o atendimento inicial do suporte, tornando o processo mais ágil e eficiente.
 
-lskadn
+Implemente um programa que leia uma string representando a solicitação do cliente e imprima o nome do serviço AWS correspondente, conforme as regras acima. Utilize apenas estruturas básicas de controle e sintaxe simples. Não utilize bibliotecas externas.
+
+Entrada
+Uma única string representando a solicitação do cliente.
+
+Saída
+Uma única string indicando o serviço AWS correspondente: "EC2", "S3", "RDS", "Lambda" ou "Servico desconhecido".
+
+Exemplos
+A tabela abaixo apresenta exemplos de entrada e saída:
+
+Entrada	------------------------------------------------ Saída
+Preciso de um servidor para rodar aplicações ----------- EC2
+Quero armazenar imagens e vídeos ----------------------- S3
+Necessito de um banco de dados relacional -------------- RDS
+Preciso executar funcoes sem servidor ------------------ Lambda
+Solicito um servico de inteligencia artificial --------- Servico desconhecido
+
+
+
+
+---- 
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    String solicitacao = scanner.nextLine();
+
+    String texto = solicitacao.toLowerCase();
+
+    scanner.close();
+    if (texto.contains("aplicacoes") && texto.contains("servidor") ) {
+      System.out.println("EC2");
+    } else if (texto.contains("armazenar") || texto.contains("arquivos") || texto.contains("imagens") || texto.contains("videos")) {
+      System.out.println("S3");
+    } else if (texto.contains("banco de dados") && texto.contains("relacional")) {
+      System.out.println("RDS");
+    } else if (texto.contains("executar") && texto.contains("funcoes") && texto.contains("sem servidor") ) {
+      System.out.println("Lambda");
+    } else {
+      System.out.println("Servico desconhecido");
+    }
+  }
+}
+
+
+
+----
